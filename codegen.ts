@@ -16,11 +16,16 @@ if (
 const config: CodegenConfig = {
   overwrite: true,
   schema: `https://graphql.contentful.com/content/v1/spaces/${CONTENTFUL_SPACE_ID}/environments/${CONTENTFUL_ENVIRONMENT}?access_token=${CONTENTFUL_ACCESS_TOKEN}`,
+  documents: ['src/**/*.{ts,tsx}'],
   generates: {
-    'graphql/generated/contentful.ts': {
-      plugins: ['typescript'],
+    './src/graphql/generated/': {
+      preset: 'client',
+      presetConfig: {
+        gqlTagName: 'gql',
+      },
     },
   },
+  ignoreNoDocuments: true,
 };
 
 export default config;
