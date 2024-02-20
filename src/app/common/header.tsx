@@ -6,7 +6,7 @@ export default function Header() {
     <nav className='flex w-full p-5 items-center bg-white shadow-sm text-sm sm:text-base'>
       <Link
         href='/'
-        className='min-w-max font-black'
+        className='min-w-max font-black sm:text-lg'
       >{`Geraldo's Dev Blog`}</Link>
       <div className=' w-full flex gap-3 justify-end items-center font-semibold'>
         <Link href='/blog'>Blog</Link>
