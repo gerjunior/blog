@@ -1,30 +1,35 @@
 import { gql } from '@/graphql/generated/gql';
 import createApolloClient from './apolloClient';
+import ProfileCard from './profile-card';
 
 const GET_AUTHOR = gql(`
-query Author($blogPostAuthorId: String!) {
+query BlogPost($blogPostAuthorId: String!) {
   blogPostAuthor(id: $blogPostAuthorId) {
     name
-    nickname
     headline
+    nickname
     avatar {
       url
     }
   }
-}`);
+}
+`);
 
 export default async function Home() {
-  const client = createApolloClient();
-  const { data } = await client.query({
-    query: GET_AUTHOR,
-    variables: {
-      blogPostAuthorId: process.env.CONTENTFUL_POST_AUTHOR_ID!,
-    },
-  });
+  // const client = createApolloClient();
+  // const { data } = await client.query({
+  //   query: GET_AUTHOR,
+  //   variables: {
+  //     blogPostAuthorId: process.env.CONTENTFUL_POST_AUTHOR_ID!,
+  //   },
+  // });
 
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <h1>{`${data.blogPostAuthor?.nickname}'s Dev Blog`}</h1>
+    <main className='flex min-h-screen flex-col items-center p-10 w-full'>
+      <div className='w-full flex flex-col md:flex-row gap-10 justify-center items-center'>
+        <ProfileCard />
+        <ProfileCard />
+      </div>
     </main>
   );
 }
