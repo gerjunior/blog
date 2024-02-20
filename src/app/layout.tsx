@@ -1,6 +1,7 @@
+import './globals.css';
+import 'prismjs/themes/prism-tomorrow.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
 import Header from './common/header';
 
 const inter = Inter({ subsets: ['latin'] });
