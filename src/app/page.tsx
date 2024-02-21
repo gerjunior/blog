@@ -38,7 +38,7 @@ export default function Home() {
         <CodeCard />
       </div>
       <h2
-        className={`text-5xl font-black text-slate-800 tracking-tighter ${slide} duration-500`}
+        className={`text-5xl font-black text-slate-800 tracking-tighter ${slide} duration-1000`}
       >
         Dev Blog
       </h2>
