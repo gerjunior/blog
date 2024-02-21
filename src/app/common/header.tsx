@@ -15,9 +15,11 @@ export default function Header() {
         <Link href='/about' className='hover:text-slate-600'>
           About
         </Link>
-        <button className='text-white bg-gradient-to-r from-[#764DFF] to-[#FFC3DF] rounded-lg p-3'>
-          Contact
-        </button>
+        <Link href='/contact'>
+          <button className='text-white bg-gradient-to-r from-[#764DFF] to-[#FFC3DF] rounded-lg p-3'>
+            Contact
+          </button>
+        </Link>
       </div>
     </nav>
   );
