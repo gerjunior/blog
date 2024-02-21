@@ -1,4 +1,5 @@
 import Prism from 'prismjs';
+import { usePageEffect } from './usePageEffect';
 
 const code = `
   // Life
@@ -19,8 +20,10 @@ export default function CodeCard() {
     'javascript',
   );
 
+  const { slide } = usePageEffect();
+
   return (
-    <div className='rounded-3xl sm:w-[32rem]'>
+    <div className={`rounded-3xl sm:w-[32rem] ${slide} duration-300`}>
       <pre className='rounded-3xl p-5 bg-gray-700'>
         <code
           dangerouslySetInnerHTML={{
