@@ -2,6 +2,7 @@ import { gql } from '@/graphql/generated/gql';
 import createApolloClient from './apolloClient';
 import ProfileCard from './profile-card';
 import CodeCard from './code-card';
+import { BlogCard } from './blog-card';
 
 const GET_AUTHOR = gql(`
 query BlogPost($blogPostAuthorId: String!) {
@@ -26,10 +27,19 @@ export default async function Home() {
   // });
 
   return (
-    <main className='flex min-h-screen flex-col items-center p-10 w-full'>
+    <main className='flex flex-col items-center min-h-screen p-10 w-full gap-16'>
       <div className='w-full flex flex-col md:flex-row gap-10 justify-center items-center'>
         <ProfileCard />
         <CodeCard />
+      </div>
+      <h2 className='text-5xl font-black text-slate-800 tracking-tighter'>
+        Dev Blog
+      </h2>
+      <div className='w-full flex flex-col gap-10 items-center'>
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
       </div>
     </main>
   );
