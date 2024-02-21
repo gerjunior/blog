@@ -6,5 +6,6 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: ['text-gray-700', 'text-white'],
 };
 export default config;

@@ -1,7 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { FaGithub, FaLinkedin, FaYoutube, FaInstagram } from 'react-icons/fa';
 import { usePageEffect } from './usePageEffect';
+import { Social } from './common/social';
 
 export default function ProfileCard() {
   const { scale, slide } = usePageEffect();
@@ -25,20 +24,7 @@ export default function ProfileCard() {
       <p className='font-semibold text-md text-gray-600'>
         Senior Software Engineer
       </p>
-      <div className='flex gap-10 p-2 text-gray-700'>
-        <Link href='https://github.com/gerjunior' target='_blank'>
-          <FaGithub size={40} />
-        </Link>
-        <Link href='https://linkedin.com/in/gerjunior' target='_blank'>
-          <FaLinkedin size={40} />
-        </Link>
-        <Link href='https://www.instagram.com/geraldosilva.dev' target='_blank'>
-          <FaInstagram size={40} />
-        </Link>
-        <Link href='https://youtube.com/@geraldo_silva' target='_blank'>
-          <FaYoutube size={40} />
-        </Link>
-      </div>
+      <Social color='gray-700' />
     </div>
   );
 }
