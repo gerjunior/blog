@@ -19,6 +19,7 @@ export function BlogCard() {
           height={450}
           alt='Eat, Sleep, Code, Repeat'
           className='rounded-3xl'
+          priority
         />
       </div>
     </div>

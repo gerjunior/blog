@@ -11,6 +11,7 @@ export default function ProfileCard() {
         height={400}
         alt='Picture of the author'
         className='rounded-full w-20 h-20 border-green-400 border-4'
+        priority
       />
       <p className='font-bold text-4xl text-gray-700'>Geraldo Silva</p>
       <p className='font-semibold text-md text-gray-600'>
