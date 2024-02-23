@@ -11,13 +11,13 @@ export function Accordion() {
 
   return (
     <div
-      className={`w-80 sm:w-96 group ${showPanel ? 'is-active' : ''}`}
+      className={`w-full sm:w-96 md:w-full group ${
+        showPanel ? 'is-active' : ''
+      }`}
       onClick={togglePanel}
     >
-      <button
-        className={`bg-white w-full rounded-xl text-slate-800 p-5 pb-12 group-[.is-active]:pb-0 duration-500 text-left text-lg font-black cursor-pointer`}
-      >
-        <div className='flex flex-row'>
+      <button className='bg-white w-full rounded-xl text-slate-800 p-5 pb-12 group-[.is-active]:pb-0 duration-500 text-left text-lg font-black cursor-pointer'>
+        <div className='w-full flex flex-row justify-between'>
           <span>Do you have a tech stack that you stick to?</span>
           <HiOutlineChevronDown
             size={30}

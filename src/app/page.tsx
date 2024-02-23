@@ -32,7 +32,7 @@ export default function Home() {
   const { slide } = usePageEffect();
 
   return (
-    <main className='flex flex-col items-center min-h-screen p-10 w-full gap-16'>
+    <main className='flex flex-col items-center min-h-screen p-10 w-screen gap-16'>
       <div className='w-full flex flex-col md:flex-row gap-10 justify-center items-center'>
         <ProfileCard />
         <CodeCard />

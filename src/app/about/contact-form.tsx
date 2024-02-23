@@ -1,12 +1,14 @@
 export function ContactForm() {
   return (
-    <div className='w-80 sm:w-96 bg-white px-10 py-10 rounded-xl text-center'>
-      <span className='text-slate-700 text-lg sm:text-xl'>
-        It would be great to hear from you, and I&apos;ll get back to you as
-        soon as possible!
-      </span>
+    <div className='w-full sm:w-96 md:w-full md:max-w-[60%] lg:w-[52rem] bg-white px-10 py-10 rounded-xl flex flex-col items-center'>
+      <div className='text-center md:w-72'>
+        <span className='text-slate-700 text-lg sm:text-xl'>
+          It would be great to hear from you, and I&apos;ll get back to you as
+          soon as possible!
+        </span>
+      </div>
 
-      <form className='flex flex-col gap-4 mt-12'>
+      <form className='w-full flex flex-col gap-4 mt-12'>
         <input
           type='text'
           placeholder='Name'
