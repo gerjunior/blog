@@ -7,5 +7,12 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   safelist: ['text-gray-700', 'text-white'],
+  theme: {
+    extend: {
+      backgroundImage: {
+        'gradient-radial': "url('/gradient.webp')",
+      },
+    },
+  },
 };
 export default config;
