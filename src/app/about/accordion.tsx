@@ -11,7 +11,7 @@ export function Accordion() {
 
   return (
     <div
-      className={`w-96 group ${showPanel ? 'is-active' : ''}`}
+      className={`w-80 sm:w-96 group ${showPanel ? 'is-active' : ''}`}
       onClick={togglePanel}
     >
       <button

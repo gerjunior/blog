@@ -1,24 +1,18 @@
 import { Accordion } from './accordion';
 import { ContactForm } from './contact-form';
+import { Introduction } from './introduction';
 
 export default function About() {
   return (
     <div className='w-screen flex flex-col items-center'>
-      <div className='text-white bg-gradient-radial w-full flex flex-col gap-5 items-center justify-center pt-24 pb-24 pr-12 pl-12 bg-cover'>
-        <div className='flex flex-col items-center text-center gap-1'>
-          <p className='font-black text-3xl sm:text-5xl'>Hey 👋</p>
-          <p className='font-black text-3xl sm:text-5xl text-nowrap'>
-            I&apos;m Geraldo
-          </p>
-        </div>
-        <p className='flex flex-col items-center text-center font-normal text-wrap w-80 sm:w-96'>
-          I have 5 years of software engineering experience, excelling in
-          challenging projects focused on backend or full-stack development.
-        </p>
-      </div>
+      <Introduction />
 
-      <div className='flex flex-col p-10 w-full items-center t'>
-        <div className='text-4xl font-black text-slate-800 mb-12'>FAQs</div>
+      <div className='w-full flex flex-col sm:flex-row items-center sm:items-start sm:justify-evenly p-10 sm:p-0 sm:mt-16 sm:mb-16'>
+        <div className='mb-12 min-w-48 sm:mt-[-20px] text-center sm:text-start'>
+          <span className='text-4xl sm:text-5xl font-black text-slate-800'>
+            FAQs
+          </span>
+        </div>
         <div className='flex flex-col gap-4'>
           <Accordion />
           <Accordion />
@@ -27,7 +21,14 @@ export default function About() {
         </div>
       </div>
 
-      <ContactForm />
+      <div className='w-full flex flex-col sm:flex-row items-center sm:items-start sm:justify-evenly mb-10'>
+        <div className='mb-10 mt-8 sm:mt-[-20px]'>
+          <span className='text-4xl sm:text-5xl font-black text-slate-800'>
+            Contact
+          </span>
+        </div>
+        <ContactForm />
+      </div>
     </div>
   );
 }
