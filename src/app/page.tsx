@@ -32,21 +32,23 @@ export default function Home() {
   const { slide } = usePageEffect();
 
   return (
-    <main className='flex flex-col items-center min-h-screen p-10 w-screen gap-16'>
+    <main className='flex flex-col items-center p-10 w-screen gap-16'>
       <div className='w-full flex flex-col md:flex-row gap-10 justify-center items-center'>
         <ProfileCard />
         <CodeCard />
       </div>
-      <h2
-        className={`text-5xl font-black text-slate-800 tracking-tighter ${slide} duration-1000`}
-      >
-        Dev Blog
-      </h2>
-      <div className='w-full flex flex-col gap-10 items-center'>
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
+      <div className='w-full flex flex-col items-center gap-12 mt-10' id='blog'>
+        <h2
+          className={`text-6xl font-black text-slate-800 tracking-tighter ${slide} duration-1000`}
+        >
+          Dev Blog
+        </h2>
+        <div className='w-full flex flex-col gap-10 items-center'>
+          <BlogCard />
+          <BlogCard />
+          <BlogCard />
+          <BlogCard />
+        </div>
       </div>
     </main>
   );

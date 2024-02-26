@@ -22,7 +22,10 @@ export default function About() {
           </div>
         </div>
 
-        <div className='w-full flex flex-col sm:flex-row items-center sm:items-start sm:justify-evenly sm:mb-10 sm:mx-10'>
+        <div
+          className='w-full flex flex-col sm:flex-row items-center sm:items-start sm:justify-evenly sm:mb-10 sm:mx-10'
+          id='contact'
+        >
           <div className='mb-10 mt-8 sm:mt-[-20px]'>
             <span className='text-4xl md:text-5xl sm:text-4xl font-black text-slate-800'>
               Contact

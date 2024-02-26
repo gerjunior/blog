@@ -5,13 +5,13 @@ export function Footer() {
   return (
     <div className='bg-black flex flex-col items-center gap-10 p-16 text-white'>
       <div className='w-full flex flex-col sm:flex-row gap-8 sm:gap-28 justify-center items-center font-semibold'>
-        <Link href='/blog' className='hover:text-slate-400'>
+        <Link href='/#blog' className='hover:text-slate-400'>
           Blog
         </Link>
         <Link href='/about' className='hover:text-slate-400'>
           About
         </Link>
-        <Link href='/contact' className='hover:text-slate-400'>
+        <Link href='/about#contact' className='hover:text-slate-400'>
           Contact
         </Link>
       </div>
