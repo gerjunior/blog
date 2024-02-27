@@ -9,7 +9,7 @@ const config: Config = {
   safelist: [
     'text-gray-700',
     'text-white',
-    'translate-y-40',
+    'translate-y-12',
     'translate-y-0',
     'opacity-0',
     'opacity-100',

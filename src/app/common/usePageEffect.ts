@@ -18,7 +18,7 @@ export const usePageEffect = <Element extends HTMLElement>(
   // ? remember to add any classes used here to the safelist in tailwind.config.js
   const effectMap: EffectMap = {
     slide: {
-      start: ['translate-y-40', 'opacity-0'],
+      start: ['translate-y-12', 'opacity-0'],
       end: ['translate-y-0', 'opacity-100'],
     },
     scale: {
