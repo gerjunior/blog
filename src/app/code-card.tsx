@@ -1,5 +1,6 @@
 import Prism from 'prismjs';
-import { usePageEffect } from './usePageEffect';
+import { usePageEffect } from './common/usePageEffect';
+import { useRef } from 'react';
 
 const code = `
   // Life
@@ -14,16 +15,26 @@ const code = `
 `;
 
 export default function CodeCard() {
+  const wrapperDivRef = useRef<HTMLDivElement | null>(null);
+  const { effectClassSet: wrapperDivEffectClassSet } = usePageEffect(
+    wrapperDivRef,
+    {
+      duration: 300,
+      effect: 'slide',
+    },
+  );
+
   const highlighted = Prism.highlight(
     code,
     Prism.languages.javascript,
     'javascript',
   );
 
-  const { slide } = usePageEffect();
-
   return (
-    <div className={`rounded-3xl sm:w-[32rem] ${slide} duration-300`}>
+    <div
+      ref={wrapperDivRef}
+      className={`rounded-3xl sm:w-[32rem] ${wrapperDivEffectClassSet}`}
+    >
       <pre className='rounded-3xl p-5 bg-gray-700'>
         <code
           dangerouslySetInnerHTML={{

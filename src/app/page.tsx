@@ -4,8 +4,8 @@ import createApolloClient from './apolloClient';
 import ProfileCard from './profile-card';
 import CodeCard from './code-card';
 import { BlogCard } from './blog-card';
-import { useEffect, useState } from 'react';
-import { usePageEffect } from './usePageEffect';
+import { useRef } from 'react';
+import { usePageEffect } from './common/usePageEffect';
 
 const GET_AUTHOR = gql(`
 query BlogPost($blogPostAuthorId: String!) {
@@ -21,15 +21,13 @@ query BlogPost($blogPostAuthorId: String!) {
 `);
 
 export default function Home() {
-  // const client = createApolloClient();
-  // const { data } = await client.query({
-  //   query: GET_AUTHOR,
-  //   variables: {
-  //     blogPostAuthorId: process.env.CONTENTFUL_POST_AUTHOR_ID!,
-  //   },
-  // });
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
 
-  const { slide } = usePageEffect();
+  const { effectClassSet: slideEffectClassSet } =
+    usePageEffect<HTMLHeadingElement>(titleRef, {
+      duration: 1000,
+      effect: 'slide',
+    });
 
   return (
     <main className='flex flex-col items-center p-10 w-screen gap-16'>
@@ -39,7 +37,8 @@ export default function Home() {
       </div>
       <div className='w-full flex flex-col items-center gap-12 mt-10' id='blog'>
         <h2
-          className={`text-6xl font-black text-slate-800 tracking-tighter ${slide} duration-1000`}
+          className={`text-6xl font-black text-slate-800 tracking-tighter ${slideEffectClassSet}`}
+          ref={titleRef}
         >
           Dev Blog
         </h2>
