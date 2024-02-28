@@ -35,7 +35,10 @@ export default function Home() {
         <ProfileCard />
         <CodeCard />
       </div>
-      <div className='w-full flex flex-col items-center gap-12 mt-10' id='blog'>
+      <div
+        className='w-full flex flex-col items-center gap-12 sm:mt-10'
+        id='blog'
+      >
         <h2
           className={`text-6xl font-black text-slate-800 tracking-tighter ${slideEffectClassSet}`}
           ref={titleRef}
