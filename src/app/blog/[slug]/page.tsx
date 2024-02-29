@@ -3,8 +3,12 @@ import Image from 'next/image';
 import { GoArrowLeft } from 'react-icons/go';
 import { CategoryTag } from '@/app/common/category-tag';
 import { BlogOptionCard } from './blog-option-card';
+import ContentfulService from '@/app/lib/contentful';
 
-export default function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: { params: { slug: string } }) {
+  const blogPost = await ContentfulService.getBlogPage(params.slug);
+  console.log(blogPost);
+
   return (
     <div className='w-screen p-8 sm:p-10 flex flex-col items-center'>
       <div className='flex flex-col gap-10 items-start w-fit'>

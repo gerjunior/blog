@@ -1,24 +1,9 @@
 'use client';
-import { gql } from '@/graphql/generated/gql';
-import createApolloClient from './apolloClient';
 import ProfileCard from './profile-card';
 import CodeCard from './code-card';
 import { BlogCard } from './blog-card';
 import { useRef } from 'react';
 import { usePageEffect } from './common/usePageEffect';
-
-const GET_AUTHOR = gql(`
-query BlogPost($blogPostAuthorId: String!) {
-  blogPostAuthor(id: $blogPostAuthorId) {
-    name
-    headline
-    nickname
-    avatar {
-      url
-    }
-  }
-}
-`);
 
 export default function Home() {
   const titleRef = useRef<HTMLHeadingElement | null>(null);
