@@ -34,3 +34,8 @@ export type BlogPage = {
 };
 
 export type BlogPageContentful = ContentfulEntry<BlogPage>;
+
+export type BlogPageCardOnlyFields = Pick<
+  BlogPage,
+  'title' | 'titleSlug' | 'category' | 'featuredImage' | 'publishedDate'
+>;

@@ -1,6 +1,10 @@
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { type ContentfulClientApi, createClient } from 'contentful';
-import type { BlogPage, BlogPageContentful } from './types';
+import type {
+  BlogPage,
+  BlogPageCardOnlyFields,
+  BlogPageContentful,
+} from './types';
 import { ContentfulHelpers } from './helpers';
 
 export default class ContentfulService {
@@ -29,7 +33,7 @@ export default class ContentfulService {
   private static mapBlogPage(blogPage: BlogPage) {
     return {
       ...blogPage,
-      content: documentToHtmlString(blogPage.content),
+      content: blogPage.content ? documentToHtmlString(blogPage.content) : '',
       featuredImage: ContentfulHelpers.mapAsset(blogPage.featuredImage),
       publishedDate: ContentfulHelpers.formatDate(blogPage.publishedDate),
       category: blogPage.category.toUpperCase(),
@@ -40,6 +44,29 @@ export default class ContentfulService {
         category: post.category.toUpperCase(),
       })),
     };
+  }
+
+  public static async getBlogPages() {
+    const contentfulClient = ContentfulService.getClient();
+
+    const result = await contentfulClient.getEntries<BlogPageContentful>({
+      content_type: 'blogPage',
+      select: [
+        'fields.category',
+        'fields.titleSlug',
+        'fields.title',
+        'fields.featuredImage',
+        'fields.publishedDate',
+      ],
+    });
+
+    const blogPages = result.items.map(
+      ContentfulHelpers.simplifyEntry<BlogPage>,
+    );
+
+    return blogPages.map(
+      ContentfulService.mapBlogPage,
+    ) as BlogPageCardOnlyFields[];
   }
 
   public static async getBlogPage(slug: string) {
