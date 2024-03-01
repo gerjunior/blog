@@ -13,7 +13,7 @@ export function Introduction() {
 
   return (
     <div
-      className={`text-white bg-gradient-radial pt-24 pb-24 pr-12 pl-12 bg-cover w-full`}
+      className={`text-white pt-24 pb-24 pr-12 pl-12 bg-cover w-full bg-gradient-to-r from-purple-800 via-slate-950 to-blue-800`}
     >
       <div
         ref={introductionTextRef}

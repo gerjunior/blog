@@ -19,12 +19,5 @@ const config: Config = {
     'duration-[500ms]',
     'duration-[300ms]',
   ],
-  theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': "url('/gradient.webp')",
-      },
-    },
-  },
 };
 export default config;
