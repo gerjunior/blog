@@ -1,6 +1,6 @@
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { ContentfulClientApi, Entry, createClient } from 'contentful';
-import type { Asset, BlogPage, BlogPageContentful } from './types';
+import { type ContentfulClientApi, createClient } from 'contentful';
+import type { BlogPage, BlogPageContentful } from './types';
 import { ContentfulHelpers } from './helpers';
 
 export default class ContentfulService {
