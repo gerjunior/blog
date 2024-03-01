@@ -5,3 +5,11 @@ export function CategoryTag({ category }: { category: string }) {
     </div>
   );
 }
+
+export function LightCategoryTag({ category }: { category: string }) {
+  return (
+    <div className='text-purple-500 font-bold pt-1 pb-1 pr-3 text-sm rounded-lg w-fit'>
+      {category}
+    </div>
+  );
+}

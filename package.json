@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^16.3.4",
     "contentful": "^10.6.22",
     "dotenv": "^16.4.4",
     "next": "14.1.0",
@@ -18,6 +19,7 @@
     "react-icons": "^5.0.1"
   },
   "devDependencies": {
+    "@contentful/rich-text-types": "^16.3.4",
     "@types/node": "^20",
     "@types/prismjs": "^1.26.3",
     "@types/react": "^18",

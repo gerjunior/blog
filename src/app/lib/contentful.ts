@@ -1,22 +1,6 @@
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { ContentfulClientApi, Entry, createClient } from 'contentful';
-
-type ContentfulEntry<T> = {
-  fields: T;
-  contentTypeId: string;
-};
-
-type BlogPage = {
-  title: string;
-  titleSlug: string;
-  category: string;
-  publishedDate: string;
-  author: unknown;
-  content: unknown;
-  featuredImage: unknown;
-  relatedPosts: unknown;
-};
-
-type BlogPageContentful = ContentfulEntry<BlogPage>;
+import type { Asset, BlogPage, BlogPageContentful } from './types';
 
 export default class ContentfulService {
   private static _client: ContentfulClientApi<undefined>;
@@ -60,6 +44,42 @@ export default class ContentfulService {
     return fields;
   }
 
+  private static mapAsset(asset: Asset) {
+    return {
+      ...asset,
+      file: {
+        ...asset.file,
+        url: `https:${asset.file.url}`,
+      },
+    };
+  }
+
+  private static formatDate(date: string) {
+    return date
+      ? new Date(date).toLocaleDateString('en-US', {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric',
+        })
+      : '';
+  }
+
+  private static mapBlogPage(blogPage: BlogPage) {
+    return {
+      ...blogPage,
+      content: documentToHtmlString(blogPage.content),
+      featuredImage: ContentfulService.mapAsset(blogPage.featuredImage),
+      publishedDate: ContentfulService.formatDate(blogPage.publishedDate),
+      category: blogPage.category.toUpperCase(),
+      relatedPosts: blogPage.relatedPosts.map((post) => ({
+        ...post,
+        featuredImage: ContentfulService.mapAsset(post.featuredImage),
+        publishedDate: ContentfulService.formatDate(post.publishedDate),
+        category: post.category.toUpperCase(),
+      })),
+    };
+  }
+
   public static async getBlogPage(slug: string) {
     const contentfulClient = ContentfulService.getClient();
 
@@ -77,6 +97,8 @@ export default class ContentfulService {
       },
     );
 
-    return ContentfulService.simplifyEntry<BlogPage>(entry);
+    const simplifiedEntry = ContentfulService.simplifyEntry<BlogPage>(entry);
+
+    return ContentfulService.mapBlogPage(simplifiedEntry);
   }
 }
