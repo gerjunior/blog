@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { BlogPage } from '@/app/lib/types';
+import { BlogPage } from '@/app/lib/contentful/types';
 import { LightCategoryTag } from '@/app/common/category-tag';
 
 type BlogOptionCardProps = {

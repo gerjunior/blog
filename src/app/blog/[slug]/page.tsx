@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { GoArrowLeft } from 'react-icons/go';
 import { CategoryTag } from '@/app/common/category-tag';
 import { BlogOptionCard } from './blog-option-card';
-import ContentfulService from '@/app/lib/contentful';
+import ContentfulService from '@/app/lib/contentful/service';
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const blogPost = await ContentfulService.getBlogPage(params.slug);
