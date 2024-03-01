@@ -30,7 +30,7 @@ export type BlogPage = {
   author: unknown;
   content: Document;
   featuredImage: Asset;
-  relatedPosts: BlogPage[];
+  relatedPosts?: BlogPage[];
 };
 
 export type BlogPageContentful = ContentfulEntry<BlogPage>;

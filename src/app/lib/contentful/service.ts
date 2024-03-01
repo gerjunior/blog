@@ -33,7 +33,7 @@ export default class ContentfulService {
       featuredImage: ContentfulHelpers.mapAsset(blogPage.featuredImage),
       publishedDate: ContentfulHelpers.formatDate(blogPage.publishedDate),
       category: blogPage.category.toUpperCase(),
-      relatedPosts: blogPage.relatedPosts.map((post) => ({
+      relatedPosts: blogPage.relatedPosts?.map((post) => ({
         ...post,
         featuredImage: ContentfulHelpers.mapAsset(post.featuredImage),
         publishedDate: ContentfulHelpers.formatDate(post.publishedDate),
