@@ -111,6 +111,6 @@ export default class ContentfulService {
       content: showdownConverter.makeHtml(item.content),
     }));
 
-    return mappedFaqs.toSorted((a, b) => a.order - b.order);
+    return mappedFaqs.sort((a, b) => a.order - b.order);
   }
 }
