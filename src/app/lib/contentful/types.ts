@@ -39,3 +39,11 @@ export type BlogPageCardOnlyFields = Pick<
   BlogPage,
   'title' | 'titleSlug' | 'category' | 'featuredImage' | 'publishedDate'
 >;
+
+export type FAQ = {
+  title: string;
+  content: string;
+  order: number;
+};
+
+export type FAQWithId = FAQ & { id: string };

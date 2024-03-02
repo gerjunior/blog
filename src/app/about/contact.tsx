@@ -1,8 +1,35 @@
-import { useState } from 'react';
+'use client';
+import { useRef, useState } from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
 import { CgSpinner } from 'react-icons/cg';
+import { usePageEffect } from '../common/usePageEffect';
 
-export function ContactForm() {
+export function Contact() {
+  const contactRef = useRef<HTMLDivElement | null>(null);
+  const { effectClassSet: contactEffectClassSet } = usePageEffect(contactRef, {
+    duration: 300,
+    effect: 'slide',
+  });
+
+  return (
+    <>
+      <div id='contact' /> {/* Helper to scroll to the contact section */}
+      <div
+        className={`w-full flex flex-col sm:flex-row items-center sm:items-start sm:justify-evenly sm:mb-10 sm:mx-10 sm:mt-16 ${contactEffectClassSet}`}
+        ref={contactRef}
+      >
+        <div className='mb-10 mt-8 sm:mt-[-20px]'>
+          <span className='text-4xl md:text-5xl sm:text-4xl font-black text-slate-800'>
+            Contact
+          </span>
+        </div>
+        <ContactForm />
+      </div>
+    </>
+  );
+}
+
+function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 

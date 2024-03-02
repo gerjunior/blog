@@ -1,9 +1,11 @@
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { type ContentfulClientApi, createClient } from 'contentful';
+import showdown from 'showdown';
 import type {
   BlogPage,
   BlogPageCardOnlyFields,
   BlogPageContentful,
+  FAQ,
 } from './types';
 import { ContentfulHelpers } from './helpers';
 
@@ -89,5 +91,26 @@ export default class ContentfulService {
     const simplifiedEntry = ContentfulHelpers.simplifyEntry<BlogPage>(entry);
 
     return ContentfulService.mapBlogPage(simplifiedEntry);
+  }
+
+  public static async getFaqs() {
+    const contentfulClient = ContentfulService.getClient();
+
+    const result = await contentfulClient.getEntries({
+      content_type: 'faqs',
+    });
+
+    const showdownConverter = new showdown.Converter();
+
+    const simplifiedEntries = result.items.map(
+      ContentfulHelpers.simplifyEntry<FAQ>,
+    );
+
+    const mappedFaqs = simplifiedEntries.map((item) => ({
+      ...item,
+      content: showdownConverter.makeHtml(item.content),
+    }));
+
+    return mappedFaqs.toSorted((a, b) => a.order - b.order);
   }
 }

@@ -2,7 +2,7 @@ import { Entry } from 'contentful';
 import { Asset } from './types';
 
 export class ContentfulHelpers {
-  public static simplifyEntry<T>(entry: Entry): T {
+  public static simplifyEntry<T>(entry: Entry): T & { id: string } {
     const fields: any = entry.fields;
 
     for (const key in fields) {
@@ -17,6 +17,8 @@ export class ContentfulHelpers {
         fields[key] = ContentfulHelpers.simplifyEntry(fields[key] as any);
       }
     }
+
+    fields.id = entry.sys.id;
 
     return fields;
   }
