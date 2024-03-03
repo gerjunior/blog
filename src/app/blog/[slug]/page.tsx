@@ -4,8 +4,51 @@ import { CategoryTag } from '@/app/common/category-tag';
 import { BlogOptionCard } from './blog-option-card';
 import ContentfulService from '@/app/lib/contentful/service';
 import { BackButton } from './back-button';
+import { Metadata } from 'next';
 
-export default async function Page({ params }: { params: { slug: string } }) {
+type PageProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const blogPost = await ContentfulService.getBlogPage(params.slug);
+
+  return {
+    title: blogPost.title,
+    description: blogPost.description,
+    metadataBase: new URL(
+      `https://geraldosilva.dev/blog/${blogPost.titleSlug}`,
+    ),
+    twitter: {
+      images: [
+        {
+          url: blogPost.featuredImage.file.url,
+          width: 700,
+          height: 700,
+          alt: blogPost.title,
+        },
+      ],
+    },
+    openGraph: {
+      title: blogPost.title,
+      type: 'article',
+      images: [
+        {
+          url: blogPost.featuredImage.file.url,
+          width: 700,
+          height: 700,
+          alt: blogPost.title,
+        },
+      ],
+    },
+  };
+}
+
+export default async function Page({ params }: PageProps) {
   const blogPost = await ContentfulService.getBlogPage(params.slug);
 
   return (

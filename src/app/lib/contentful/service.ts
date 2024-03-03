@@ -54,6 +54,7 @@ export default class ContentfulService {
     const result = await contentfulClient.getEntries<BlogPageContentful>({
       content_type: 'blogPage',
       select: [
+        'sys.id',
         'fields.category',
         'fields.titleSlug',
         'fields.title',

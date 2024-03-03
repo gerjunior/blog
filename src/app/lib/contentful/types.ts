@@ -25,9 +25,9 @@ export type Asset = {
 export type BlogPage = {
   title: string;
   titleSlug: string;
+  description: string;
   category: string;
   publishedDate: string;
-  author: unknown;
   content: Document;
   featuredImage: Asset;
   relatedPosts?: BlogPage[];
