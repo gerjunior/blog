@@ -1,3 +1,4 @@
+import 'server-only';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { type ContentfulClientApi, createClient } from 'contentful';
 import showdown from 'showdown';
