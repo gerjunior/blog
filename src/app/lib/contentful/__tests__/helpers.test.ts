@@ -18,33 +18,14 @@ describe('ContentfulHelpers', () => {
         },
         fields: {
           title: 'My Entry',
-          nested: {
-            sys: {
-              id: '2',
-              type: 'Entry',
-              locale: 'en-US',
-              contentType: {
-                sys: {
-                  id: 'contentType',
-                  linkType: 'ContentType',
-                  type: 'Link',
-                },
-              },
-            },
-            fields: {
-              name: 'Nested Entry',
-            },
-          },
         },
       };
 
       const simplified = ContentfulHelpers.simplifyEntry(entry);
 
       expect(simplified).toEqual({
+        id: '1',
         title: 'My Entry',
-        nested: {
-          name: 'Nested Entry',
-        },
       });
     });
 
@@ -84,8 +65,10 @@ describe('ContentfulHelpers', () => {
       const simplified = ContentfulHelpers.simplifyEntry(entry);
 
       expect(simplified).toEqual({
+        id: '1',
         title: 'My Entry',
         nested: {
+          id: '2',
           name: 'Nested Entry',
         },
       });
@@ -146,12 +129,15 @@ describe('ContentfulHelpers', () => {
       const simplified = ContentfulHelpers.simplifyEntry(entry);
 
       expect(simplified).toEqual({
+        id: '1',
         title: 'My Entry',
         nested: [
           {
+            id: '2',
             name: 'Nested Entry 1',
           },
           {
+            id: '3',
             name: 'Nested Entry 2',
           },
         ],
