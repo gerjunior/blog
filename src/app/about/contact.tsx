@@ -59,7 +59,7 @@ function ContactForm() {
   };
 
   return (
-    <div className='w-full sm:w-96 md:w-full md:max-w-[60%] lg:w-[52rem] bg-white px-10 py-10 sm:rounded-xl flex flex-col items-center'>
+    <div className='w-full sm:w-96 md:w-full md:max-w-[60%] lg:w-[52rem] bg-white px-10 pt-10 pb-8 sm:rounded-xl flex flex-col items-center'>
       {!submitted && (
         <>
           <div className='text-center md:w-72'>
@@ -101,20 +101,32 @@ function ContactForm() {
               required
               rows={4}
             />
-            <button
-              className='bg-blue-500 text-white p-4 rounded-lg'
-              type='submit'
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? (
-                <CgSpinner
-                  className='animate-spin text-center w-full'
-                  size={24}
-                />
-              ) : (
-                'Send Message'
-              )}
-            </button>
+            <div className='w-full flex flex-col items-center gap-3'>
+              <button
+                className='bg-blue-500 text-white p-4 rounded-lg w-full'
+                type='submit'
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <CgSpinner
+                    className='animate-spin text-center w-full'
+                    size={24}
+                  />
+                ) : (
+                  'Send Message'
+                )}
+              </button>
+              <p className='text-slate-400'>
+                Powered by{' '}
+                <a
+                  href='https://web3forms.com/'
+                  target='_blank'
+                  className='text-slate-600'
+                >
+                  Web3Forms
+                </a>
+              </p>
+            </div>
           </form>
         </>
       )}
