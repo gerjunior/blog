@@ -1,3 +1,4 @@
+import './styles.css';
 import Image from 'next/image';
 import { CategoryTag } from '@/app/common/category-tag';
 import { BlogOptionCard } from './blog-option-card';
@@ -70,7 +71,7 @@ export default async function Page({ params }: PageProps) {
           priority
         />
         <div
-          className='text-lg text-slate-800 flex flex-col gap-5'
+          className='text-lg text-slate-800 flex flex-col gap-5 blog-post-dangerous-html-content'
           dangerouslySetInnerHTML={{
             __html: blogPost.content,
           }}
