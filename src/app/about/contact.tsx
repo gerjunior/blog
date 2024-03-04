@@ -32,6 +32,7 @@ export function Contact() {
 function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [name, setName] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -81,10 +82,16 @@ function ContactForm() {
               value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY}
             />
             <input
+              type='hidden'
+              name='subject'
+              value={`[geraldosilva.dev] ${name} sent you a message!`}
+            />
+            <input
               type='text'
               name='name'
               placeholder='Name'
               className='p-4 rounded-lg bg-gray-50'
+              onChange={(e) => setName(e.target.value)}
               required
             />
             <input
