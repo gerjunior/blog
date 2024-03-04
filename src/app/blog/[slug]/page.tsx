@@ -1,4 +1,3 @@
-import './styles.css';
 import Image from 'next/image';
 import { CategoryTag } from '@/app/common/category-tag';
 import { BlogOptionCard } from './blog-option-card';
