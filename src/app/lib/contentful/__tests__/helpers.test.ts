@@ -1,7 +1,7 @@
 import { describe, it, expect } from '@jest/globals';
-import { ContentfulHelpers } from './helpers';
+import { ContentfulHelpers } from '../helpers';
 import { Entry } from 'contentful';
-import { Asset } from './types';
+import { Asset } from '../types';
 
 describe('ContentfulHelpers', () => {
   describe('simplifyEntry', () => {
