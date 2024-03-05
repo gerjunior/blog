@@ -8,7 +8,12 @@ import { usePageEffect } from '@/app/common/usePageEffect';
 type PostContentProps = {
   blogPost: Pick<
     ParsedBlogPage,
-    'category' | 'title' | 'publishedDate' | 'featuredImage' | 'content'
+    | 'category'
+    | 'title'
+    | 'publishedDate'
+    | 'featuredImage'
+    | 'content'
+    | 'description'
   >;
 };
 
@@ -33,11 +38,17 @@ export function PostContent({ blogPost }: PostContentProps) {
 
   return (
     <div className='flex flex-col gap-10 items-start w-fit max-w-[50rem]'>
-      <div ref={titleRef} className={`flex flex-col gap-5 ${effectClassSet}`}>
+      <div
+        ref={titleRef}
+        className={`w-full flex flex-col gap-5 ${effectClassSet}`}
+      >
         <CategoryTag category={blogPost.category} />
-        <h1 className='text-3xl sm:text-5xl font-black sm:w-[32rem] text-slate-800'>
+        <h1 className='w-full text-3xl sm:text-5xl font-black text-slate-700'>
           {blogPost.title}
         </h1>
+        <h2 className='w-full text-xl text-slate-500 mt-5'>
+          {blogPost.description}
+        </h2>
         <span className='text-slate-500'>{blogPost.publishedDate}</span>
       </div>
       <Image
