@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BlogPage } from '@/app/lib/contentful/types';
-import { LightCategoryTag } from '@/app/common/category-tag';
+import { CategoryTag } from '@/app/common/category-tag';
 
 type BlogOptionCardProps = {
   post: BlogPage;
@@ -19,7 +19,7 @@ export function BlogOptionCard({ post }: BlogOptionCardProps) {
           priority
         />
         <div className='flex flex-col justify-center gap-1'>
-          <LightCategoryTag category={post.category} />
+          <CategoryTag category={post.category} />
           <h2 className='text-2xl font-bold text-slate-800 mt-0'>
             {post.title}
           </h2>
