@@ -24,6 +24,7 @@ export async function generateMetadata({
       `https://geraldosilva.dev/blog/${blogPost.titleSlug}`,
     ),
     twitter: {
+      description: blogPost.description,
       images: [
         {
           url: blogPost.featuredImage.file.url,
@@ -35,6 +36,7 @@ export async function generateMetadata({
     },
     openGraph: {
       title: blogPost.title,
+      description: blogPost.description,
       type: 'article',
       images: [
         {
