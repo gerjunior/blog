@@ -33,6 +33,10 @@ export type BlogPage = {
   relatedPosts?: BlogPage[];
 };
 
+export type ParsedBlogPage = Omit<BlogPage, 'content'> & {
+  content: string;
+};
+
 export type BlogPageContentful = ContentfulEntry<BlogPage>;
 
 export type BlogPageCardOnlyFields = Pick<

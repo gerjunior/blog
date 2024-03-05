@@ -1,10 +1,10 @@
 import './styles.css';
-import Image from 'next/image';
-import { CategoryTag } from '@/app/common/category-tag';
+
+import { Metadata } from 'next';
 import { BlogOptionCard } from './blog-option-card';
 import ContentfulService from '@/app/lib/contentful/service';
 import { BackButton } from './back-button';
-import { Metadata } from 'next';
+import { PostContent } from './content';
 
 type PageProps = {
   params: {
@@ -55,27 +55,7 @@ export default async function Page({ params }: PageProps) {
     <div className='w-screen p-8 sm:p-10 flex flex-col items-center bg-white border-t-2'>
       <div className='flex flex-col gap-10 items-start w-fit max-w-[50rem]'>
         <BackButton />
-        <div className='flex flex-col gap-5'>
-          <CategoryTag category={blogPost.category} />
-          <h1 className='text-3xl sm:text-5xl font-black sm:w-[32rem] text-slate-800'>
-            {blogPost.title}
-          </h1>
-          <span className='text-slate-500'>{blogPost.publishedDate}</span>
-        </div>
-        <Image
-          src={blogPost.featuredImage.file.url}
-          width={700}
-          height={700}
-          alt='Eat, Sleep, Code, Repeat'
-          className='rounded-2xl object-cover w-full max-h-[36rem] max-w-[50rem]'
-          priority
-        />
-        <div
-          className='text-lg text-slate-800 flex flex-col gap-5 blog-post-dangerous-html-content'
-          dangerouslySetInnerHTML={{
-            __html: blogPost.content,
-          }}
-        ></div>
+        <PostContent blogPost={blogPost} />
         <span className='w-full text-center text-2xl scale-100 font-bold text-slate-800'>
           Continue Reading
         </span>

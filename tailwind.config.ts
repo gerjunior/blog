@@ -16,6 +16,7 @@ const config: Config = {
     'scale-0',
     'scale-100',
     'duration-[1000ms]',
+    'duration-[800ms]',
     'duration-[500ms]',
     'duration-[300ms]',
   ],
