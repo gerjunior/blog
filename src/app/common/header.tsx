@@ -16,7 +16,7 @@ export default function Header() {
           About
         </Link>
         <Link href='/about#contact'>
-          <button className='text-white bg-gradient-to-r from-[#764DFF] to-[#FFC3DF] rounded-lg p-3'>
+          <button className='bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-lg text-xl'>
             Contact
           </button>
         </Link>
