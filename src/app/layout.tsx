@@ -2,6 +2,7 @@ import './globals.css';
 import 'prismjs/themes/prism-tomorrow.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import Header from './common/header';
 import { Footer } from './common/footer';
 
@@ -23,6 +24,11 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <Script
+          defer
+          data-domain='geraldosilva.dev'
+          src='https://plausible.io/js/script.js'
+        ></Script>
       </body>
     </html>
   );
