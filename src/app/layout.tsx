@@ -10,7 +10,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: "Geraldo's Dev Blog",
-  description: 'My personal blog about software development and other topics',
+  description:
+    'Explore software dev and beyond: code, career, and personal growth insights. Join the journey!',
 };
 
 export default function RootLayout({
