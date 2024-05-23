@@ -6,6 +6,7 @@ import Script from 'next/script';
 import Header from './common/header';
 import { Footer } from './common/footer';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
           src='https://plausible.io/js/script.js'
         ></Script>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
