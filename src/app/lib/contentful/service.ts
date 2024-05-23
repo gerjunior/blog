@@ -72,6 +72,7 @@ export default class ContentfulService {
         'fields.featuredImage',
         'fields.publishedDate',
       ],
+      order: '-fields.publishedDate' as any,
     });
 
     const blogPages = result.items.map(
