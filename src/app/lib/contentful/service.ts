@@ -9,6 +9,7 @@ import type {
   FAQ,
 } from './types';
 import { ContentfulHelpers } from './helpers';
+import { BLOCKS } from '@contentful/rich-text-types';
 
 export default class ContentfulService {
   private static _client: ContentfulClientApi<undefined>;
@@ -36,7 +37,16 @@ export default class ContentfulService {
   private static mapBlogPage(blogPage: BlogPage) {
     return {
       ...blogPage,
-      content: blogPage.content ? documentToHtmlString(blogPage.content) : '',
+      content: blogPage.content
+        ? documentToHtmlString(blogPage.content, {
+            renderNode: {
+              [BLOCKS.EMBEDDED_ASSET]: (node) => {
+                const asset = node.data.target.fields.file;
+                return `<img src="${asset.url}" alt="${asset.fileName}" />`;
+              },
+            },
+          })
+        : '',
       featuredImage: ContentfulHelpers.mapAsset(blogPage.featuredImage),
       publishedDate: ContentfulHelpers.formatDate(blogPage.publishedDate),
       category: blogPage.category.toUpperCase(),
@@ -89,6 +99,16 @@ export default class ContentfulService {
         include: 2,
       },
     );
+
+    // @ts-expect-error - lazy
+    const resizedPosts = (entry.fields.relatedPosts as any[]).map((post) => {
+      delete post.fields.content;
+      delete post.fields.relatedPosts;
+      return post;
+    });
+
+    // @ts-expect-error - lazy
+    entry.fields.relatedPosts = resizedPosts;
 
     const simplifiedEntry = ContentfulHelpers.simplifyEntry<BlogPage>(entry);
 

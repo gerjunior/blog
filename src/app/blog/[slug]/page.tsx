@@ -58,7 +58,7 @@ export default async function Page({ params }: PageProps) {
       <div className='flex flex-col gap-10 items-start w-fit max-w-[50rem]'>
         <BackButton />
         <PostContent blogPost={blogPost} />
-        <span className='w-full text-center text-2xl scale-100 font-bold text-slate-800'>
+        <span className='w-full mt-5 text-center text-2xl scale-100 font-bold text-slate-800'>
           Continue Reading
         </span>
         <div className='flex flex-col gap-20'>
