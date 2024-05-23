@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import Header from './common/header';
 import { Footer } from './common/footer';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
           data-domain='geraldosilva.dev'
           src='https://plausible.io/js/script.js'
         ></Script>
+        <Analytics />
       </body>
     </html>
   );
