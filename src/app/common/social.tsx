@@ -11,7 +11,7 @@ export function Social({ color }: SocialProps) {
       <Link href='https://github.com/gerjunior' target='_blank'>
         <FaGithub size={40} />
       </Link>
-      <Link href='https://linkedin.com/in/gerjunior' target='_blank'>
+      <Link href='https://linkedin.com/in/geraldosilvadev' target='_blank'>
         <FaLinkedin size={40} />
       </Link>
       <Link href='https://www.instagram.com/geraldosilva.dev' target='_blank'>
